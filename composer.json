@@ -15,7 +15,7 @@
     ],
     "require": {
         "craftcms/cms": "^3.1.0",
-        "putyourlightson/craft-blitz": "^3.0.0"
+        "putyourlightson/craft-blitz": "^3.0.2"
     },
     "autoload": {
         "psr-4": {
