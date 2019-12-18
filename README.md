@@ -2,6 +2,8 @@
 
 The Shell Deployer allows the [Blitz](https://putyourlightson.com/plugins/blitz) plugin for [Craft CMS](https://craftcms.com/) to deploy cached files to remote locations using shell commands.
 
+> WARNING: Commands are parsed by the shell of your OS. Use at your own risk.
+
 ## License
 
 This plugin is licensed for free under the attached License terms.
