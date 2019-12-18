@@ -1,6 +1,6 @@
 # Blitz Shell Deployer for Craft CMS
 
-The Shell Deployer allows the [Blitz](https://putyourlightson.com/plugins/blitz) plugin for [Craft CMS](https://craftcms.com/) to deploy cached files directly to Shell sites.
+The Shell Deployer allows the [Blitz](https://putyourlightson.com/plugins/blitz) plugin for [Craft CMS](https://craftcms.com/) to deploy cached files to remote locations using shell commands.
 
 ## Usage
 
@@ -19,7 +19,7 @@ Then add the class to the `driverTypes` config setting in `config/blitz.php`.
 ],
 ```
 
-You can then select the deployer either in the control panel or in `config/blitz.php`. The settings must be defined in `config/blitz.php`.
+You can then select the deployer either in the control panel or in `config/blitz.php`. The shell commands to run must be defined in the `deployerSettings` setting in `config/blitz.php`.
 
 ```
 // The deployer type to use.
@@ -27,7 +27,9 @@ You can then select the deployer either in the control panel or in `config/blitz
 
 // The deployer settings.
 'deployerSettings' => [
-   'commands' => [],
+   'commands' => [
+        'cp -r ~/mysite.com/web/cache/blitz ~/remote'
+    ],
 ],
 ```
 
