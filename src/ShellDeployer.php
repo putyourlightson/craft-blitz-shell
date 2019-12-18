@@ -8,6 +8,7 @@ namespace putyourlightson\blitzshell;
 use Craft;
 use craft\events\CancelableEvent;
 use putyourlightson\blitz\drivers\deployers\BaseDeployer;
+use Symfony\Component\Process\Process;
 use yii\base\Event;
 
 class ShellDeployer extends BaseDeployer
@@ -59,16 +60,19 @@ class ShellDeployer extends BaseDeployer
             return;
         }
 
-        $progressLabel = Craft::t('blitz', 'Running deploy commands.');
+        $count = 0;
+        $total = count($this->commands);
+        $label = 'Running {count} of {total} deploy commands.';
 
-        if (is_callable($setProgressHandler)) {
-            call_user_func($setProgressHandler, 0, 1, $progressLabel);
-        }
+        foreach ($this->commands as $command) {
+            $count++;
 
-        $this->runCommands($this->commands);
+            if (is_callable($setProgressHandler)) {
+                $progressLabel = Craft::t('blitz', $label, ['count' => $count, 'total' => $total]);
+                call_user_func($setProgressHandler, $count, $total, $progressLabel);
+            }
 
-        if (is_callable($setProgressHandler)) {
-            call_user_func($setProgressHandler, 1, 1, $progressLabel);
+            Process::fromShellCommandline($command)->mustRun();
         }
 
         if ($this->hasEventHandlers(self::EVENT_AFTER_RUN)) {
