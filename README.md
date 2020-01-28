@@ -29,7 +29,7 @@ Then add the class to the `driverTypes` config setting in `config/blitz.php`.
 ],
 ```
 
-You can then select the deployer either in the control panel or in `config/blitz.php`. The shell commands to run must be defined as an array in the `deployerSettings` setting in `config/blitz.php`.
+You can then select the deployer and add shell commands to execute either in the control panel or in `config/blitz.php`. The shell commands cal also be defined as an array of arrays in the `deployerSettings` setting in `config/blitz.php`.
 
 ```
 // The deployer type to use.
@@ -38,7 +38,9 @@ You can then select the deployer either in the control panel or in `config/blitz
 // The deployer settings.
 'deployerSettings' => [
    'commands' => [
-        'cp -r ~/mysite.com/web/cache/blitz ~/remote'
+        ['cp -r ~/mysite.com/web/cache/blitz ~/remote'],
+        ['cp -r ~/mysite.com/web/cache/blitz ~/remote'],
+        ['cp -r ~/mysite.com/web/cache/blitz ~/remote'],
     ],
 ],
 ```

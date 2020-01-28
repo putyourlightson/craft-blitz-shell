@@ -1,0 +1,15 @@
+{% import "_includes/forms" as forms %}
+
+
+{{ forms.editableTableField({
+    id: 'commands',
+    name: 'commands',
+    label: "Commands"|t('blitz'),
+    instructions: "Shell commands to be executed."|t('blitz'),
+    cols: [{
+        type: 'text',
+        heading: "Command"|t('blitz'),
+        code: true,
+    }],
+    rows: deployer.commands,
+}) }}

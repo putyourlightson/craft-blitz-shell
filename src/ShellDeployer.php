@@ -7,6 +7,8 @@ namespace putyourlightson\blitzshell;
 
 use Craft;
 use craft\events\CancelableEvent;
+use craft\events\RegisterTemplateRootsEvent;
+use craft\web\View;
 use putyourlightson\blitz\drivers\deployers\BaseDeployer;
 use Symfony\Component\Process\Process;
 use yii\base\Event;
@@ -51,6 +53,21 @@ class ShellDeployer extends BaseDeployer
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        parent::init();
+
+        // Register CP template root
+        Event::on(View::class, View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
+            function(RegisterTemplateRootsEvent $event) {
+                $event->roots['blitz-shell'] = __DIR__.'/templates/';
+            }
+        );
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function deployUrisWithProgress(array $siteUris, callable $setProgressHandler = null)
     {
         $event = new CancelableEvent();
@@ -65,6 +82,10 @@ class ShellDeployer extends BaseDeployer
         $label = 'Running {count} of {total} deploy commands.';
 
         foreach ($this->commands as $command) {
+            if (is_array($command)) {
+                $command = $command[0] ?? '';
+            }
+
             $count++;
 
             if (is_callable($setProgressHandler)) {
@@ -78,5 +99,15 @@ class ShellDeployer extends BaseDeployer
         if ($this->hasEventHandlers(self::EVENT_AFTER_RUN)) {
             $this->trigger(self::EVENT_AFTER_RUN, new Event());
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getSettingsHtml()
+    {
+        return Craft::$app->getView()->renderTemplate('blitz-shell/settings', [
+            'deployer' => $this,
+        ]);
     }
 }

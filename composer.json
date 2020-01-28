@@ -1,7 +1,7 @@
 {
     "name": "putyourlightson/craft-blitz-shell",
     "description": "Shell deployer for the Blitz plugin for Craft CMS.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "type": "blitz-deployer",
     "license": "proprietary",
     "keywords": [
