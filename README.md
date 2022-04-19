@@ -1,3 +1,8 @@
+[![Stable Version](https://img.shields.io/packagist/v/putyourlightson/craft-blitz-shell?label=stable)]((https://packagist.org/packages/putyourlightson/craft-blitz-shell))
+[![Total Downloads](https://img.shields.io/packagist/dt/putyourlightson/craft-blitz-shell)](https://packagist.org/packages/putyourlightson/craft-blitz-shell)
+
+<p align="center"><img width="130" src="https://putyourlightson.com/assets/logos/blitz.svg"></p>
+
 # Blitz Shell Deployer for Craft CMS
 
 The Shell Deployer allows the [Blitz](https://putyourlightson.com/plugins/blitz) plugin for [Craft CMS](https://craftcms.com/) to deploy cached files to remote locations using shell commands.
