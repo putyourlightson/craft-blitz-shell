@@ -4,25 +4,17 @@ The Shell Deployer allows the [Blitz](https://putyourlightson.com/plugins/blitz)
 
 > WARNING: Commands are parsed by the shell of your OS. Use at your own risk.
 
-## License
-
-This plugin is licensed for free under the attached License terms.
-
-## Requirements
-
-Blitz 3.0.2 or later and PHP 7.1.3 or later.
-
 ## Usage
 
 Install the deployer using composer.
 
-```
+```shell
 composer require putyourlightson/craft-blitz-shell
 ```
 
 Then add the class to the `driverTypes` config setting in `config/blitz.php`.
 
-```
+```php
 // The deployer type classes to add to the plugin’s default deployer types.
 'deployerTypes' => [
     'putyourlightson\blitzshell\ShellDeployer',
@@ -31,7 +23,7 @@ Then add the class to the `driverTypes` config setting in `config/blitz.php`.
 
 You can then select the deployer and add shell commands to execute either in the control panel or in `config/blitz.php`. The shell commands cal also be defined as an array of arrays in the `deployerSettings` setting in `config/blitz.php`.
 
-```
+```php
 // The deployer type to use.
 'deployerType' => 'putyourlightson\blitzshell\ShellDeployer',
 

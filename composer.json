@@ -1,7 +1,7 @@
 {
     "name": "putyourlightson/craft-blitz-shell",
     "description": "Shell deployer for the Blitz plugin for Craft CMS.",
-    "version": "1.1.0",
+    "version": "2.0.0-beta.1",
     "type": "blitz-deployer",
     "license": "proprietary",
     "keywords": [
@@ -14,8 +14,9 @@
         "deployer"
     ],
     "require": {
-        "craftcms/cms": "^3.1.0",
-        "putyourlightson/craft-blitz": "^3.0.2",
+        "php": "^8.0.2",
+        "craftcms/cms": "^4.0.0-beta.1",
+        "putyourlightson/craft-blitz": "^4.0.0-beta.2",
         "symfony/process": "^4.2.0 || ^5.0.0"
     },
     "autoload": {
@@ -33,6 +34,6 @@
         "developer": "PutYourLightsOn",
         "developerUrl": "https://putyourlightson.com/",
         "documentationUrl": "https://putyourlightson.com/plugins/blitz",
-        "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz-shell/v1/CHANGELOG.md"
+        "changelogUrl": "https://raw.githubusercontent.com/putyourlightson/craft-blitz-shell/v2/CHANGELOG.md"
     }
 }

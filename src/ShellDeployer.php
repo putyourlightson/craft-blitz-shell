@@ -13,23 +13,20 @@ use putyourlightson\blitz\drivers\deployers\BaseDeployer;
 use Symfony\Component\Process\Process;
 use yii\base\Event;
 
+/**
+ * @property-read null|string $settingsHtml
+ */
 class ShellDeployer extends BaseDeployer
 {
-    // Constants
-    // =========================================================================
-
     /**
      * @event CancelableEvent
      */
-    const EVENT_BEFORE_RUN = 'beforeRun';
+    public const EVENT_BEFORE_RUN = 'beforeRun';
 
     /**
      * @event Event
      */
-    const EVENT_AFTER_RUN = 'afterRun';
-
-    // Static
-    // =========================================================================
+    public const EVENT_AFTER_RUN = 'afterRun';
 
     /**
      * @inheritdoc
@@ -39,21 +36,15 @@ class ShellDeployer extends BaseDeployer
         return Craft::t('blitz', 'Shell Deployer');
     }
 
-    // Properties
-    // =========================================================================
-
     /**
      * @var string|string[]
      */
-    public $commands = [];
-
-    // Public Methods
-    // =========================================================================
+    public string|array $commands = [];
 
     /**
      * @inheritdoc
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
@@ -68,7 +59,7 @@ class ShellDeployer extends BaseDeployer
     /**
      * @inheritdoc
      */
-    public function deployUrisWithProgress(array $siteUris, callable $setProgressHandler = null)
+    public function deployUrisWithProgress(array $siteUris, callable $setProgressHandler = null): void
     {
         $event = new CancelableEvent();
         $this->trigger(self::EVENT_BEFORE_RUN, $event);
@@ -104,7 +95,7 @@ class ShellDeployer extends BaseDeployer
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate('blitz-shell/settings', [
             'deployer' => $this,
