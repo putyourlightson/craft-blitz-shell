@@ -51,7 +51,7 @@ class ShellDeployer extends BaseDeployer
         // Register CP template root
         Event::on(View::class, View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
             function(RegisterTemplateRootsEvent $event) {
-                $event->roots['blitz-shell'] = __DIR__.'/templates/';
+                $event->roots['blitz-shell'] = __DIR__ . '/templates/';
             }
         );
     }
