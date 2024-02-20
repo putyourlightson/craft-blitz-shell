@@ -1,15 +1,7 @@
 # Release Notes for Blitz Shell Deployer
 
-## 2.0.0 - 2022-07-04
+## 3.0.0-beta.1 - 2024-02-19
+
 ### Added
-- Added compatibility with Craft 4.
 
-### Changed
-- Changed minimum required version of Blitz to 4.0.0.
-
-## 1.1.0 - 2020-01-28
-### Added
-- Added editable table for commands to the control panel settings.
-
-## 1.0.0 - 2019-12-18
-- Initial release.
+- Added compatibility with Craft 5.0.0.
