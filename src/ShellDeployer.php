@@ -37,9 +37,9 @@ class ShellDeployer extends BaseDeployer
     }
 
     /**
-     * @var string|string[]
+     * @var string[]|string[][]
      */
-    public string|array $commands = [];
+    public array $commands = [];
 
     /**
      * @inheritdoc
