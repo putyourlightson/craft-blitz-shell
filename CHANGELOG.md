@@ -1,5 +1,9 @@
 # Release Notes for Blitz Shell Deployer
 
+## 2.1.0 - 2024-03-21
+### Added
+- Added compatibility with Symfony Process 6 and 7.
+
 ## 2.0.0 - 2022-07-04
 ### Added
 - Added compatibility with Craft 4.
